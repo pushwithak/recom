@@ -56,18 +56,3 @@ Responses containing the following patterns were excluded:
 | **AI self-references** | "as an AI", "I'm a language model", "as an artificial intelligence" |
 | **Capability disclaimers** | "I don't have personal", "I cannot experience", "I lack emotions" |
 | **Role disclaimers** | "I'm not human", "I am not capable of" |
-
-## Evaluation Framework
-
-RECOM supports multi-dimensional evaluation:
-```
-┌─────────────────────────────────────────────────────────┐
-│                  Evaluation Metrics                     │
-├─────────────────┬─────────────────┬─────────────────────┤
-│    Lexical      │    Semantic     │   Logical Inference │
-├─────────────────┼─────────────────┼─────────────────────┤
-│ • BLEU-1 to 4   │ • BERTScore     │ • NLI Entailment    │
-│ • ROUGE-1/2/L   │ • MoverScore    │ • NLI Contradiction │
-│                 │ • Cosine Sim.   │ • NLI Neutral       │
-└─────────────────┴─────────────────┴─────────────────────┘
-```
