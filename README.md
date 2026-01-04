@@ -6,15 +6,6 @@
 
 This repository accompanies our paper: **"Assessing LLM Reliability on Temporally Recent Open-Domain Questions"**
 
-## Key Findings
-
-| Finding | Result |
-|---------|--------|
-|  **Semantic-Lexical Paradox** | >99% cosine similarity despite <8% BLEU-1 overlap |
-|  **Scale ≠ Performance** | Mistral-7B (7B) outperforms GPT-OSS-20B (20B) |
-|  **Low Contradiction** | <7% contradiction rate across all models |
-|  **MoverScore Gradient** | 51–53% intermediate alignment scores |
-
 ## Dataset Statistics
 
 | Metric | Value |
@@ -56,3 +47,13 @@ Responses containing the following patterns were excluded:
 | **AI self-references** | "as an AI", "I'm a language model", "as an artificial intelligence" |
 | **Capability disclaimers** | "I don't have personal", "I cannot experience", "I lack emotions" |
 | **Role disclaimers** | "I'm not human", "I am not capable of" |
+
+
+## Key Findings
+
+| Finding | Result |
+|---------|--------|
+|  **Semantic-Lexical Paradox** | >99% cosine similarity despite <8% BLEU-1 overlap |
+|  **Scale ≠ Performance** | Mistral-7B (7B) outperforms GPT-OSS-20B (20B) |
+|  **Low Contradiction** | <7% contradiction rate across all models |
+|  **MoverScore Gradient** | 51–53% intermediate alignment scores |
