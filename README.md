@@ -39,6 +39,9 @@ Filtered evaluation dataset after removing refusal responses (8 columns, 11,528 
 
 **Note:** Llama-3.1-8B-Instruct was used for reference summary generation (`summary` column). Its responses (`generated_answer_llama3.1_8b`) are included in the dataset for transparency but were excluded from all evaluations and comparisons in the paper to avoid self-alignment bias.
 
+### 3. `Human_annotation.xlsx`
+Seven annotators evaluated 1,155 question-reference pairs on two binary criteria (3 annotators per group, with annotators assigned to multiple groups): **Relevance** (does the summary address the original question?) and **Coherence** (is the summary clearly written and well-organized?). Annotator names have been anonymized. Columns: `id`, `original_post`, `summary`, followed by paired Relevance/Coherence ratings (Yes/No) for each of the three annotators.
+
 ## Filtering Criteria
 
 Responses containing the following patterns were excluded:
