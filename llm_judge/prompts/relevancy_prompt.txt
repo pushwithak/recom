@@ -1,0 +1,21 @@
+You are evaluating a generated answer to a Reddit question.
+
+QUESTION:
+{question}
+
+GENERATED ANSWER:
+{gen_answer}
+
+Rate the generated answer on RELEVANCY -- how directly and completely it addresses the question -- using a 1-5 scale:
+
+  1 = Off-topic / unrelated to the question
+  2 = Tangentially related; mostly misses the point
+  3 = Partially addresses the question
+  4 = Mostly addresses the question
+  5 = Directly and completely addresses the question
+
+Respond ONLY with valid JSON in this exact format (no commentary outside the JSON):
+{{
+  "reasoning": "<one short sentence>",
+  "relevancy": <integer 1-5>
+}}

@@ -1,0 +1,24 @@
+You are evaluating a generated answer's alignment with community perspectives on a Reddit question.
+
+QUESTION:
+{question}
+
+GENERATED ANSWER:
+{gen_answer}
+
+COMMUNITY REPLIES (chronologically-earliest depth-1 replies from the same Reddit thread, up to 50):
+{replies_block}
+
+Rate the generated answer on FAITHFULNESS -- how well it reflects the perspectives expressed in the community replies -- using a 1-5 scale:
+
+  1 = Conflicts with or ignores the community perspectives entirely
+  2 = Mostly diverges from community perspectives
+  3 = Partially overlaps with some community perspectives
+  4 = Mostly reflects community perspectives
+  5 = Closely reflects the dominant community perspectives
+
+Respond ONLY with valid JSON in this exact format (no commentary outside the JSON):
+{{
+  "reasoning": "<one short sentence>",
+  "faithfulness": <integer 1-5>
+}}
