@@ -36,11 +36,10 @@ recom/
 ├── recom_replies.parquet        647,973 rows: post_id, reply_text (long format)
 ├── recom_replies.xlsx           11,528 rows: post_id, depth_1_replies (joined; truncated where >32k chars)
 ├── llm_judge/
-│   ├── inputs.parquet           50,000 rows: judge_row_id, post_id, model, condition, question, gen_answer, replies
-│   ├── outputs_phi4.parquet     Phi-4 (14B) raw scores per judge_row_id
-│   ├── outputs_gemma3.parquet   Gemma-3-27B-Instruct raw scores
-│   ├── outputs_yi.parquet       Yi-1.5-34B-Chat raw scores
-│   ├── analysis_post_ids.txt    The exact 1,000 post IDs used in the paper's judge analysis
+│   ├── inputs.parquet           10,000 rows: judge_row_id, post_id, model, condition, question, gen_answer, replies (the 1,000-post analysis subsample × 5 models × 2 conditions)
+│   ├── outputs_phi4.parquet     Phi-4 (14B) raw scores per judge_row_id (10,000 rows)
+│   ├── outputs_gemma3.parquet   Gemma-3-27B-Instruct raw scores (10,000 rows)
+│   ├── outputs_yi.parquet       Yi-1.5-34B-Chat raw scores (10,000 rows)
 │   └── prompts/
 │       ├── relevancy_prompt.txt
 │       └── faithfulness_prompt.txt
@@ -77,9 +76,8 @@ Each post has a variable number of replies (median 14, mean 56). Join `recom.xls
 
 Reproducibility bundle for the three-judge validation.
 
-- **`inputs.parquet`** (50,000 rows) — every (post, model, condition) row scored by the judges. Columns: `judge_row_id`, `post_id`, `model` ∈ {mistral_7b, qwen2.5_7b, granite3.1-dense_8b, falcon3_10b, llama3.1_8b}, `condition` ∈ {real, random}, `question`, `gen_answer`, `replies` (list of strings). The seed-42 random sample is 5,000 posts × 5 models × 2 conditions.
-- **`outputs_*.parquet`** — raw per-row judge scores. Join to `inputs.parquet` on `judge_row_id`. Columns: `judge_row_id`, `relevancy_score`, `relevancy_reasoning`, `relevancy_raw_response`, `relevancy_error`, `faithfulness_score`, `faithfulness_reasoning`, `faithfulness_raw_response`, `faithfulness_error`. Row counts differ across judges because each completed a different portion of the 50,000-row queue; the paper's analysis uses the **first 1,000 posts** of the seed-42 sample (3-way intersection of completed rows).
-- **`analysis_post_ids.txt`** — the exact 1,000 post IDs that constitute the analysis subsample, one per line.
+- **`inputs.parquet`** (10,000 rows = 1,000 posts × 5 models × 2 conditions) — the analysis subsample described in the paper. Columns: `judge_row_id`, `post_id`, `model` ∈ {mistral_7b, qwen2.5_7b, granite3.1-dense_8b, falcon3_10b, llama3.1_8b}, `condition` ∈ {real, random}, `question`, `gen_answer`, `replies` (list of up to 50 reply strings). The judges were actually run over a larger 5,000-post seed-42 random draw; we release only the 1,000-post analysis slice that the paper reports on.
+- **`outputs_*.parquet`** (10,000 rows each) — raw per-row judge scores. Join to `inputs.parquet` on `judge_row_id`. Columns: `judge_row_id`, `relevancy_score`, `relevancy_reasoning`, `relevancy_raw_response`, `relevancy_error`, `faithfulness_score`, `faithfulness_reasoning`, `faithfulness_raw_response`, `faithfulness_error`. Phi-4 and Gemma-3 have valid integer scores on all 10,000 rows; Yi-1.5 has 9,964 valid Relevancy scores and 9,999 valid Faithfulness scores (the remainder are JSON-parsing errors captured in the `*_error` columns).
 - **`prompts/`** — verbatim prompt templates passed to each judge (Relevancy: question + answer only; Faithfulness: question + answer + up to 50 chronologically-earliest replies). Both prompts request JSON output with `reasoning` and integer score fields; judges run at temperature 0 with JSON-constrained output.
 
 ## Answer-generation protocol
