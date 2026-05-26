@@ -147,7 +147,7 @@ The September 2025 collection window postdates the training cutoffs of every eva
 
 ## Ethical use
 
-Per the paper's Ethics statement, RECOM is intended **for research use only** and is released under **CC BY-NC 4.0** (see `LICENSE`). All usernames have been removed; the release contains only question text, depth-1 reply text, and non-personally-identifying Reddit post IDs. Community replies should not be interpreted as authoritative ground truth — they reflect the views of users active in each thread and may over-represent dominant viewpoints. r/AskReddit is predominantly safe-for-work; we did not perform explicit NSFW or toxicity screening, which we note as a limitation of the release.
+Per the paper's Ethics statement, RECOM is intended **for research use only** and is released under **CC BY-NC 4.0**. All usernames have been removed; the release contains only question text, depth-1 reply text, and non-personally-identifying Reddit post IDs. Community replies should not be interpreted as authoritative ground truth — they reflect the views of users active in each thread and may over-represent dominant viewpoints. r/AskReddit is predominantly safe-for-work; we did not perform explicit NSFW or toxicity screening, which we note as a limitation of the release.
 
 ## Citation
 
