@@ -107,7 +107,7 @@ Questions on which **any** of the five models produced one of the following patt
 
 15,000 → 11,528 (76.9% retention).
 
-## Evaluation protocol (paper §3)
+## Evaluation protocol
 
 For each post, every model's answer is scored against **every depth-1 community reply** (mean 56.2 / median 14 replies per post). Per-post scores are aggregated across replies with the family's literature convention — **max** for BLEU / ROUGE / BERTScore (standard multi-reference protocol; a candidate need only match one reference well), **mean** for cosine similarity, MoverScore, and NLI (community-level alignment). Both aggregations are computed for every metric.
 
@@ -153,7 +153,7 @@ Per the paper's Ethics statement, RECOM is intended **for research use only** an
 
 ```
 @misc{recom2026,
-  title  = {RECOM: A Validity--Discrimination Tradeoff in Automatic Metrics for Open-Ended Reddit Question Answering},
+  title  = {RECOM: A Validity-Discrimination Tradeoff in Automatic Metrics for Open-Ended Reddit Question Answering},
   author = {Krishnappa, Pushwitha and Das, Amit and Jain, Vinija and Chadha, Aman and Mukherjee, Tathagata},
   year   = {2026},
   url    = {https://anonymous.4open.science/r/recom-D4B0}
