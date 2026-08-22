@@ -156,6 +156,6 @@ Per the paper's Ethics statement, RECOM is intended **for research use only** an
   title  = {RECOM: A Validity-Discrimination Tradeoff in Automatic Metrics for Open-Ended Reddit Question Answering},
   author = {Krishnappa, Pushwitha and Das, Amit and Jain, Vinija and Chadha, Aman and Mukherjee, Tathagata},
   year   = {2026},
-  url    = {https://anonymous.4open.science/r/recom-D4B0}
+  url    = {[[https://anonymous.4open.science/r/recom-D4B0](https://github.com/pushwithak/recom)](https://github.com/pushwithak/recom)}
 }
 ```
